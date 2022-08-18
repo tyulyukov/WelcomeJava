@@ -10,6 +10,20 @@ public class Money implements Comparable<Money> {
     @Getter
     private int coins;
 
+    private void setBanknotes(int amount) throws Exception {
+        if (amount < 0)
+            throw new Exception("Money can not be negative");
+
+        banknotes = amount;
+    }
+
+    private void setCoins(int amount) throws Exception {
+        if (amount < 0)
+            throw new Exception("Money can not be negative");
+
+        coins = amount;
+    }
+
     @Override
     public int compareTo(Money o) {
         if (banknotes == o.banknotes && coins == o.coins)

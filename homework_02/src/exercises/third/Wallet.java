@@ -14,4 +14,9 @@ public class Wallet {
             System.err.println(ex.getMessage());
         }
     }
+
+    @Override
+    public String toString() {
+        return money.getBanknotes() + "." + money.getCoins();
+    }
 }
