@@ -18,6 +18,7 @@ public class TrelloBoard {
     private Long id;
 
     @OneToMany
+    @JoinColumn(name = "trello_board_id")
     private Set<TrelloColumn> trelloColumns = new HashSet<>();
 
     private String name;

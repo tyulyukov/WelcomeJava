@@ -8,15 +8,18 @@
 <h1> All Portfolio </h1>
 <a href="/portfolio/create"> Add </a>
 
-<ul th:each="p: ${portfolios}">
-  <li>
+<ul>
+  <li th:each="p: ${portfolios}">
     <span th:text="${p.name}"></span>
+    <span> Category: <span th:text="${p.portfolioCategory.name}"/></span>
+    <ol th:if="${p.portfolioTags != null}">
+      <li th:each="tag: ${p?.portfolioTags}" th:text="${tag.name}"></li>
+    </ol>
     <a th:href="@{/portfolio/edit/{id}/(id=${p.id})}"> edit  </a>
     <a th:href="@{|/portfolio/edit/${p.id}|}">edit 2 </a>
     |
     <a th:href="@{|/portfolio/delete/${p.id}|}">delete </a>
     <br>
-    <span th:text="${p.id}"></span>
 
   </li>
 </ul>

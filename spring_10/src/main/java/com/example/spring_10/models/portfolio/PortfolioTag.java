@@ -16,7 +16,7 @@ public class PortfolioTag {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "portfolioTags")
     private Set<PortfolioItem> portfolioItems;
 
     private String name;

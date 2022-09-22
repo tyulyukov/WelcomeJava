@@ -34,7 +34,8 @@ public class PortfolioItemController {
      */
     @GetMapping("/portfolio")
     public String index(Model model) {
-        model.addAttribute("portfolios", portfolioItemRepository.findAll());
+        var items = portfolioItemRepository.findAll();
+        model.addAttribute("portfolios", items);
         return "portfolio/index";
     }
 

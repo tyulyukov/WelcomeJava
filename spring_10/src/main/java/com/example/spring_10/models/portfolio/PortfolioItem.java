@@ -21,6 +21,10 @@ public class PortfolioItem {
     private PortfolioCategory portfolioCategory;
 
     @ManyToMany
+    @JoinTable(
+        name = "portfolio_items_tags",
+        joinColumns = @JoinColumn(name = "portfolio_item_id"),
+        inverseJoinColumns = @JoinColumn(name = "portfolio_tag_id"))
     private Set<PortfolioTag> portfolioTags;
 
     private String name;

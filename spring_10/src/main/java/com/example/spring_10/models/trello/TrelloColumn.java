@@ -20,9 +20,11 @@ public class TrelloColumn {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "trello_board_id")
     private TrelloBoard trelloBoard;
 
     @OneToMany
+    @JoinColumn(name = "trello_column_id")
     private Set<TrelloCard> trelloCards = new HashSet<>();
 
     @CreationTimestamp

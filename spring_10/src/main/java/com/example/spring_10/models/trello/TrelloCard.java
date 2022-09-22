@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "trello_columns")
+@Table(name = "trello_cards")
 public class TrelloCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +18,7 @@ public class TrelloCard {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "trello_column_id")
     private TrelloColumn trelloColumn;
 
     @CreationTimestamp
